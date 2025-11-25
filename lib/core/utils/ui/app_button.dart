@@ -1,4 +1,5 @@
 import 'package:easacc_app/core/utils/constants/app_dimensions.dart';
+import 'package:easacc_app/core/utils/constants/app_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

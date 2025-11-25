@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:suits_app/core/utils/constants/app_colors.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -32,13 +31,11 @@ class CustomTextField extends StatelessWidget {
         hintText: hintText,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
-        hintStyle: const TextStyle(color: AppColors.hintTextColor),
-        enabledBorder: outLineInputBorder(color: AppColors.borderColor),
-        focusedBorder: outLineInputBorder(color: AppColors.borderColor),
-        errorBorder: outLineInputBorder(color: AppColors.errorBorderColor),
-        focusedErrorBorder: outLineInputBorder(
-          color: AppColors.errorBorderColor,
-        ),
+        hintStyle: const TextStyle(color: Colors.grey),
+        enabledBorder: outLineInputBorder(color: Colors.grey),
+        focusedBorder: outLineInputBorder(color: Colors.grey),
+        errorBorder: outLineInputBorder(color: Colors.red),
+        focusedErrorBorder: outLineInputBorder(color: Colors.red),
       ),
     );
   }

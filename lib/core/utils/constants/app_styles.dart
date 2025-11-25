@@ -1,10 +1,8 @@
+import 'package:easacc_app/core/utils/constants/app_dimensions.dart';
 import 'package:flutter/material.dart';
-import 'package:suits_app/core/utils/constants/app_dimensions.dart';
 
 class AppStyles {
   AppStyles._();
-
-  static String appFont = 'montserrat';
 
   static TextStyle reguler({
     double fontSize = AppDimensions.small,
@@ -12,7 +10,6 @@ class AppStyles {
     TextDecoration? textDecoration,
   }) {
     return TextStyle(
-      fontFamily: appFont,
       fontWeight: FontWeight.w400,
       fontSize: fontSize,
       color: color,
@@ -27,7 +24,6 @@ class AppStyles {
     double? height,
   }) {
     return TextStyle(
-      fontFamily: appFont,
       fontWeight: FontWeight.w500,
       fontSize: fontSize,
       color: color,
@@ -42,7 +38,6 @@ class AppStyles {
     TextDecoration? textDecoration,
   }) {
     return TextStyle(
-      fontFamily: appFont,
       fontWeight: FontWeight.w600,
       fontSize: fontSize,
       color: color,
@@ -56,7 +51,6 @@ class AppStyles {
     TextDecoration? textDecoration,
   }) {
     return TextStyle(
-      fontFamily: appFont,
       fontWeight: FontWeight.w700,
       fontSize: fontSize,
       color: color,
