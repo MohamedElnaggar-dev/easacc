@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "203614194358",
+    "project_id": "easacc-app-1b084",
+    "storage_bucket": "easacc-app-1b084.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203614194358:android:ee984ef21c5a2e81873417",
+        "android_client_info": {
+          "package_name": "com.example.easacc_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203614194358-luki8d4cuem7h1b7hf1h10pun6j4dv56.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZxMzx1dtQkSZ1J7nIILofpGIku56RBO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203614194358-luki8d4cuem7h1b7hf1h10pun6j4dv56.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "203614194358-0vocpg455tdgdn6l8rh764thqf0douq0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.easaccApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
