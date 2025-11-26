@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:easacc_app/core/utils/error_handeling/custom_excption.dart';
-import 'package:easacc_app/core/utils/error_handeling/failure.dart';
+
+import 'package:easacc_app/core/utils/error_handler/custom_excption.dart';
+import 'package:easacc_app/core/utils/error_handler/failure.dart';
 import 'package:easacc_app/features/auth/data/services/firebase_auth_service.dart';
 import 'package:easacc_app/features/auth/domain/repo/auth_repo.dart';
 

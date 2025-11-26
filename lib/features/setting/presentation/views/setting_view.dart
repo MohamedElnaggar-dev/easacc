@@ -42,7 +42,7 @@ class _SettingsViewState extends State<SettingsView> {
   Future<void> _saveUrl() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('website_url', _urlController.text.trim());
-    showSnakBar(context, "تم حفظ الرابط بنجاح");
+    showSnakBar(context, "URL saved successfully.");
   }
 
   Future<void> _requestPermissionsAndScan() async {

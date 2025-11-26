@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:easacc_app/core/utils/error_handeling/failure.dart';
+import 'package:easacc_app/core/utils/error_handler/failure.dart';
 import 'package:easacc_app/features/auth/domain/repo/auth_repo.dart';
 
 class SignInWithFacebookUseCase {
