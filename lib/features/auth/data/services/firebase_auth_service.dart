@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:easacc_app/core/utils/error_handeling/custom_excption.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -46,29 +48,31 @@ class FirebaseAuthService {
 
   Future<User> signInWithFacebook() async {
     try {
-      final LoginResult loginResult = await FacebookAuth.instance.login();
+      final LoginResult result = await FacebookAuth.instance.login();
+      log("Facebook login status: ${result.status}");
+      log("Facebook login message: ${result.message}");
+      if (result.status == LoginStatus.success) {
+        final AccessToken accessToken = result.accessToken!;
 
-      final OAuthCredential facebookAuthCredential =
-          FacebookAuthProvider.credential(loginResult.accessToken!.token);
+        final OAuthCredential credential = FacebookAuthProvider.credential(
+          accessToken.tokenString,
+        );
 
-      final UserCredential userCredential = await _firebaseAuth
-          .signInWithCredential(facebookAuthCredential);
+        final UserCredential userCredential = await FirebaseAuth.instance
+            .signInWithCredential(credential);
 
-      final user = userCredential.user;
+        final user = userCredential.user!;
 
-      if (user == null) {
+        return user;
+      } else if (result.status == LoginStatus.cancelled) {
+        throw CustomException(errMessage: 'Facebook sign-in was cancelled.');
+      } else {
         throw CustomException(
-          errMessage: "Google sign-in failed. No user returned.",
+          errMessage: result.message ?? 'Unknown Facebook login error.',
         );
       }
-
-      return user;
-    } on FirebaseAuthException catch (e) {
-      throw CustomException(
-        errMessage: e.message ?? "FirebaseAuth Google error.",
-      );
     } catch (e) {
-      throw CustomException(errMessage: "Google sign-in failed: $e");
+      throw CustomException(errMessage: e.toString());
     }
   }
 }
