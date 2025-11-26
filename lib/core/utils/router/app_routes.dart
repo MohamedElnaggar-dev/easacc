@@ -1,3 +1,4 @@
+import 'package:easacc_app/core/utils/injector/get_it.dart';
 import 'package:easacc_app/features/auth/presentation/manger/signin_cubit/signin_cubit.dart';
 import 'package:easacc_app/features/auth/presentation/views/login_view.dart';
 import 'package:easacc_app/features/link_view/presentation/view/link_view.dart';
@@ -14,7 +15,7 @@ class AppRoutes {
       GoRoute(
         path: '/',
         builder: (context, state) => BlocProvider(
-          create: (context) => SigninCubit(),
+          create: (context) => injector<SigninCubit>(),
           child: const LoginView(),
         ),
       ),

@@ -6,9 +6,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseAuthService {
-  final FirebaseAuth _firebaseAuth;
-
-  FirebaseAuthService(this._firebaseAuth);
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   Future<User> signInWithGoogle() async {
     try {
