@@ -10,7 +10,7 @@ class AppRoutes {
   static const kSettingView = '/settingView';
   static const kLinkView = '/linkView';
   static final router = GoRouter(
-    initialLocation: '/settingView',
+    initialLocation: '/',
     routes: [
       GoRoute(
         path: '/',

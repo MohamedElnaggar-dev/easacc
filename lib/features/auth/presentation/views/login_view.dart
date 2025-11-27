@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:easacc_app/core/utils/constants/app_assets.dart';
 import 'package:easacc_app/core/utils/router/app_routes.dart';
 import 'package:easacc_app/core/utils/ui/show_snak_bar.dart';
@@ -19,6 +21,7 @@ class LoginView extends StatelessWidget {
             context.go(AppRoutes.kSettingView);
           } else if (state is SigninFailure) {
             showSnakBar(context, state.errorMessage, isError: true);
+            log(state.errorMessage);
           }
         },
         builder: (context, state) {
