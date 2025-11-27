@@ -42,11 +42,13 @@ class _SettingsViewState extends State<SettingsView> {
   Future<void> _saveUrl() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('website_url', _urlController.text.trim());
+    if (!mounted) return;
     showSnakBar(context, "URL saved successfully.");
   }
 
   Future<void> _requestPermissionsAndScan() async {
     if (!mounted) return;
+
     setState(() {
       isScanning = true;
       selectedPrinter = null;
@@ -61,21 +63,36 @@ class _SettingsViewState extends State<SettingsView> {
       Permission.locationWhenInUse,
     ].request();
 
+    final adapterState = await FlutterBluePlus.adapterState.first;
+    if (adapterState != BluetoothAdapterState.on) {
+      if (!mounted) return;
+      showSnakBar(
+        context,
+        "Please enable Bluetooth to scan for printers.",
+        isError: true,
+      );
+      setState(() => isScanning = false);
+      return;
+    }
+
+    printers.clear();
+
     FlutterBluePlus.startScan(timeout: const Duration(seconds: 4));
     _scanSub = FlutterBluePlus.scanResults.listen((results) {
       if (!mounted) return;
       for (ScanResult r in results) {
-        if (r.device.name.isNotEmpty && !printers.contains(r.device.name)) {
+        if (r.device.platformName.isNotEmpty &&
+            !printers.contains(r.device.platformName)) {
           setState(() {
-            printers.add(r.device.name);
+            printers.add(r.device.platformName);
           });
         }
       }
     });
 
-    // أمثلة طابعات واي فاي
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 4));
     if (!mounted) return;
+
     setState(() {
       if (printers.isEmpty) {
         printers.addAll([

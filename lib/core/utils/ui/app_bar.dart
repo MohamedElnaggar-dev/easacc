@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:easacc_app/core/utils/constants/app_styles.dart';
+import 'package:easacc_app/core/utils/router/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -28,7 +30,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: centerTitle,
       leading: isLeading == true
           ? GestureDetector(
-              onTap: () => Navigator.pop(context),
+              onTap: () {
+                if (context.canPop()) {
+                  context.pop();
+                } else {
+                  context.replace(AppRoutes.kSettingView);
+                }
+              },
               child: const Icon(Icons.arrow_back_ios, color: Colors.black),
             )
           : null,

@@ -18,7 +18,7 @@ class LoginView extends StatelessWidget {
           if (state is SigninSuccess) {
             context.go(AppRoutes.kSettingView);
           } else if (state is SigninFailure) {
-            showSnakBar(context, state.errorMessage);
+            showSnakBar(context, state.errorMessage, isError: true);
           }
         },
         builder: (context, state) {
@@ -28,11 +28,17 @@ class LoginView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomLoginWithAccouts(
+                  onTap: () {
+                    BlocProvider.of<SigninCubit>(context).signInWithGoogle();
+                  },
                   text: 'Sign in with google',
                   image: Assets.imagesGoogle,
                 ),
                 SizedBox(height: 32),
                 CustomLoginWithAccouts(
+                  onTap: () {
+                    BlocProvider.of<SigninCubit>(context).signInWithFacebook();
+                  },
                   text: 'Sign in with facebook',
                   image: Assets.imagesFacebook,
                 ),
