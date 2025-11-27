@@ -135,7 +135,13 @@ class _SettingsViewState extends State<SettingsView> {
             ),
 
             const SizedBox(height: 10),
-            ElevatedButton(onPressed: _saveUrl, child: const Text("save")),
+            ElevatedButton(
+              onPressed: _saveUrl,
+              style: ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(Colors.green),
+              ),
+              child: const Text("save", style: TextStyle(color: Colors.white)),
+            ),
             const SizedBox(height: 30),
             const Text(
               "Available Printers",
@@ -179,6 +185,7 @@ class _SettingsViewState extends State<SettingsView> {
             ),
             const SizedBox(height: 10),
             ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
               onPressed: isScanning ? null : _requestPermissionsAndScan,
               icon: isScanning
                   ? const SizedBox(
@@ -187,7 +194,10 @@ class _SettingsViewState extends State<SettingsView> {
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
                   : const Icon(Icons.refresh),
-              label: Text(isScanning ? "Scanning..." : "Refresh Printer List"),
+              label: Text(
+                isScanning ? "Scanning..." : "Refresh Printer List",
+                style: TextStyle(color: Colors.white),
+              ),
             ),
             const Spacer(),
 
