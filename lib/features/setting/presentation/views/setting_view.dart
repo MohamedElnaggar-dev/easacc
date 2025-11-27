@@ -202,7 +202,8 @@ class _SettingsViewState extends State<SettingsView> {
               onPressed: _urlController.text.trim().isEmpty
                   ? null
                   : () {
-                      context.go(AppRoutes.kLinkView);
+                      final url = _urlController.text.trim();
+                      context.push("${AppRoutes.kLinkView}?url=$url");
                     },
               child: const Text(
                 "Open Website",
