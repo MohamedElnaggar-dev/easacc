@@ -3,4 +3,5 @@
     <string name="app_name">easacc_app</string>
     <string name="facebook_app_id">844087945146551</string>
     <string name="facebook_client_token">b9f268b6612670f4f83b484e5d4d89b3</string>
+    <string name="fb_login_protocol_scheme">fb844087945146551</string>
 </resources>
